@@ -40,7 +40,9 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
     private OnDatePickerValueSet mListenerDate;
     private String yearString;
 
-    public DialogDatePicker(Context context, String dayLabel, String yearLabel, String[] monthLabels,
+    public DialogDatePicker(Context context, String dayLabel,
+                            String yearLabel, String[] monthLabels, String posBtnLabel,
+                            String negBtnLabel,
                             OnDatePickerValueSet inp_mListenerDate) {
         this.context = context;
         this.dayLabel=dayLabel;
@@ -53,7 +55,12 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
         dialogBox.setCancelable(false);
         Button okBtn =  dialogBox.findViewById(R.id.tvOkDialogBtn);
         Button cancelBtn =  dialogBox.findViewById(R.id.tvcancelDialogBtn);
+        okBtn.setText(posBtnLabel);
+        cancelBtn.setText(negBtnLabel);
+
         tVDateLabel =  dialogBox.findViewById(R.id.tVDateLabel);
+
+
         createDatePicker();
 
 

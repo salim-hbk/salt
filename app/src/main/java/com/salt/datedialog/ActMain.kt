@@ -14,6 +14,7 @@ class ActMain : AppCompatActivity() {
 
         DialogDatePicker(this, getString(R.string.day), getString(R.string.year),
                 resources.getStringArray(R.array.month_array),
+                getString(R.string.ok_caps), getString(R.string.cancel),
                 object : DialogDatePicker.OnDatePickerValueSet {
                     override fun onDateSet(year: Int, month: Int, day: Int) {
                         val thisYear = year
