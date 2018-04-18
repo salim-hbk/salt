@@ -15,10 +15,9 @@ import java.util.Calendar;
  * Created by Saleem on 12/9/2016.
  */
 
-public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
+public class DialogDatePicker extends Dialog implements NumberPicker.OnValueChangeListener {
 
 
-    private static Dialog dialogBox = null;
     private final static int MAX_YEARS = 100;
     private final String dayLabel;
     private final String yearLabel;
@@ -33,7 +32,7 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
     private Calendar calendar = Calendar.getInstance();
     private String[] yearsDispValues;
     private String[] yearsDispValuesNumber;
-    private String[] monthsDispValues= new String[12];
+    private String[] monthsDispValues = new String[12];
 
     private Context context;
     private TextView tVDateLabel;
@@ -44,21 +43,22 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
                             String yearLabel, String[] monthLabels, String posBtnLabel,
                             String negBtnLabel,
                             OnDatePickerValueSet inp_mListenerDate) {
+        super(context);
         this.context = context;
-        this.dayLabel=dayLabel;
-        this.monthsDispValues=monthLabels;
-        this.yearLabel=yearLabel;
+        this.dayLabel = dayLabel;
+        this.monthsDispValues = monthLabels;
+        this.yearLabel = yearLabel;
         this.mListenerDate = inp_mListenerDate;
-        dialogBox = new Dialog(context);
-        dialogBox.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogBox.setContentView(R.layout.dialog_datepicker);
-        dialogBox.setCancelable(false);
-        Button okBtn =  dialogBox.findViewById(R.id.tvOkDialogBtn);
-        Button cancelBtn =  dialogBox.findViewById(R.id.tvcancelDialogBtn);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.dialog_datepicker);
+        setCancelable(false);
+        Button okBtn = findViewById(R.id.tvOkDialogBtn);
+        Button cancelBtn = findViewById(R.id.tvcancelDialogBtn);
         okBtn.setText(posBtnLabel);
         cancelBtn.setText(negBtnLabel);
 
-        tVDateLabel =  dialogBox.findViewById(R.id.tVDateLabel);
+        tVDateLabel = findViewById(R.id.tVDateLabel);
 
 
         createDatePicker();
@@ -68,33 +68,33 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
             @Override
             public void onClick(View v) {
                 mListenerDate.onDateSet(YEAR_SELECTED, (MONTH_SELECTED), DATE_SELECTED);
-                dialogBox.dismiss();
+                dismiss();
             }
         });
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                dialogBox.dismiss();
+                dismiss();
             }
         });
-        dialogBox.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
     }
 
     public void showDatePickerDialog() {
 
-        if (dialogBox != null && !dialogBox.isShowing())
-            dialogBox.show();
+        if (!isShowing())
+            show();
     }
 
-   private String dayString;
+    private String dayString;
 
     private void createDatePicker() {
-        nPYear = dialogBox.findViewById(R.id.nPyear);
-        nPmonth =  dialogBox.findViewById(R.id.nPmonth);
-        nPdate =  dialogBox.findViewById(R.id.nPdate);
+        nPYear = findViewById(R.id.nPyear);
+        nPmonth = findViewById(R.id.nPmonth);
+        nPdate = findViewById(R.id.nPdate);
 
-        dayString =  dayLabel;
+        dayString = dayLabel;
         yearString = yearLabel;
 
 
