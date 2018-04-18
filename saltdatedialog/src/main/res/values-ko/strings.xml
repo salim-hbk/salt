@@ -1,31 +1,8 @@
 <resources>
     <string name="app_name">Date picker</string>
-    <string name="current">현재</string>
-    <string name="day">일</string>
-    <string name="today">오늘</string>
-    <string name="full_day">종일</string>
-    <string name="tomorrow">내일</string>
-    <string name="day_after_tmr">모레</string>
     <string name="cancel">취소</string>
     <string name="no_caps">NO</string>
     <string name="ok_caps">확인</string>
-    <string name="year">년</string>
-
-    <!-- Months short names -->
-    <string-array name="month_array">
-        <item>1월</item>
-        <item>2월</item>
-        <item>3월</item>
-        <item>4월</item>
-        <item>5월</item>
-        <item>6월</item>
-        <item>7월</item>
-        <item>8월</item>
-        <item>9월</item>
-        <item>10월</item>
-        <item>11월</item>
-        <item>12월</item>
-    </string-array>
 
 
 

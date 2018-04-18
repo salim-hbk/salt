@@ -20,6 +20,8 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
 
     private static Dialog dialogBox = null;
     private final static int MAX_YEARS = 100;
+    private final String dayLabel;
+    private final String yearLabel;
 
     private NumberPicker nPYear;
     private NumberPicker nPmonth;
@@ -31,15 +33,19 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
     private Calendar calendar = Calendar.getInstance();
     private String[] yearsDispValues;
     private String[] yearsDispValuesNumber;
-    private String[] monthsDispValues;
+    private String[] monthsDispValues= new String[12];
 
     private Context context;
     private TextView tVDateLabel;
     private OnDatePickerValueSet mListenerDate;
     private String yearString;
 
-    public DialogDatePicker(Context context, OnDatePickerValueSet inp_mListenerDate) {
+    public DialogDatePicker(Context context, String dayLabel, String yearLabel, String[] monthLabels,
+                            OnDatePickerValueSet inp_mListenerDate) {
         this.context = context;
+        this.dayLabel=dayLabel;
+        this.monthsDispValues=monthLabels;
+        this.yearLabel=yearLabel;
         this.mListenerDate = inp_mListenerDate;
         dialogBox = new Dialog(context);
         dialogBox.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -81,8 +87,8 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
         nPmonth =  dialogBox.findViewById(R.id.nPmonth);
         nPdate =  dialogBox.findViewById(R.id.nPdate);
 
-        dayString = " " + context.getString(R.string.day);
-        yearString = " " + context.getString(R.string.year);
+        dayString =  dayLabel;
+        yearString = yearLabel;
 
 
         setYearsToDatePicker();
@@ -130,8 +136,6 @@ public class DialogDatePicker implements NumberPicker.OnValueChangeListener {
 
     private void setMonthsToDatePicker() {
         int month = calendar.get(Calendar.MONTH);
-        monthsDispValues = new String[12];
-        monthsDispValues = context.getResources().getStringArray(R.array.month_array);
         nPmonth.setMinValue(0);
         nPmonth.setMaxValue(monthsDispValues.length - 1);
         nPmonth.setDisplayedValues(monthsDispValues);

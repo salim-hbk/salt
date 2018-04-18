@@ -1,32 +1,7 @@
 <resources>
     <string name="app_name">Date picker</string>
-    <string name="current">Current</string>
-    <string name="day">Day</string>
-    <string name="today">Today</string>
-    <string name="full_day">Full Day</string>
-    <string name="tomorrow">Tomorrow</string>
-    <string name="day_after_tmr">The day after tomorrow</string>
     <string name="cancel">Cancel</string>
     <string name="no_caps">NO</string>
     <string name="ok_caps">OK</string>
-    <string name="year">Yr</string>
-
-    <!-- Months short names -->
-    <string-array name="month_array">
-        <item>Jan</item>
-        <item>Feb</item>
-        <item>Mar</item>
-        <item>Apr</item>
-        <item>May</item>
-        <item>Jun</item>
-        <item>Jul</item>
-        <item>Aug</item>
-        <item>Sep</item>
-        <item>Oct</item>
-        <item>Nov</item>
-        <item>Dec</item>
-    </string-array>
-
-
 
 </resources>
