@@ -1,6 +1,8 @@
 # salt Localised DatePicker Dialog
 android library for localised date picker dialog
 
+![date picker](https://github.com/salim-hbk/salt/blob/master/Screenshot_2018-04-20-10-28-44.png)
+
 Usage
 
    DialogDatePicker(this, getString(R.string.day), getString(R.string.year),
